@@ -135,7 +135,7 @@ final class ResumeView: UIView {
 
         let image = UIImage(named: "town")
         let attachment = NSTextAttachment()
-        let attributedString = NSMutableAttributedString(string: "Москва")
+        let attributedString = NSMutableAttributedString(string: "town".localized)
 
         backgroundColor = .white
 
@@ -145,7 +145,7 @@ final class ResumeView: UIView {
         scrollView.clipsToBounds = true
         scrollView.contentInsetAdjustmentBehavior = .always
 
-        titleLabel.text = "Профиль"
+        titleLabel.text = "profile".localized
         titleLabel.font = .systemFont(ofSize: 18, weight: .semibold)
         titleLabel.textAlignment = .center
 
@@ -159,9 +159,9 @@ final class ResumeView: UIView {
         fullNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
         fullNameLabel.textAlignment = .center
 
-        descriptionLabel.text = "iOS-разработчик, опыт 1 год :)"
+        descriptionLabel.text = "experience".localized
         descriptionLabel.textColor = AppColorEnum.descriptionTextColor.color
-        descriptionLabel.numberOfLines = 0
+        descriptionLabel.numberOfLines = 2
         descriptionLabel.adjustsFontSizeToFitWidth = true
         descriptionLabel.font = .systemFont(ofSize: 14, weight: .regular)
         descriptionLabel.textAlignment = .center
@@ -171,12 +171,12 @@ final class ResumeView: UIView {
         attributedString.insert(NSAttributedString(attachment: attachment), at: 0)
         townLabel.attributedText = attributedString
         townLabel.textColor = AppColorEnum.descriptionTextColor.color
-        townLabel.numberOfLines = 0
+        townLabel.numberOfLines = 1
         townLabel.adjustsFontSizeToFitWidth = true
         townLabel.font = .systemFont(ofSize: 14, weight: .regular)
         townLabel.textAlignment = .center
 
-        aboutMeLabel.text = "О себе"
+        aboutMeLabel.text = "about".localized
         aboutMeLabel.textAlignment = .left
         aboutMeLabel.font = .systemFont(ofSize: 16, weight: .medium)
 
@@ -191,7 +191,7 @@ final class ResumeView: UIView {
 
         alignedFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
-        mySkillsLabel.text = "Мои навыки"
+        mySkillsLabel.text = "my skills".localized
         mySkillsLabel.font = .systemFont(ofSize: 16, weight: .medium)
 
         scrollView.isScrollEnabled = true

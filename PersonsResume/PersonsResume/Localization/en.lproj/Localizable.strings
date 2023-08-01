@@ -1,8 +1,16 @@
 /* 
-  Localizable.strings
-  PersonsResume
+ Localizable.strings
+ PersonsResume
 
-  Created by Людмила Долонтаева on 2023-08-01.
-  
-*/
+ Created by Людмила Долонтаева on 2023-08-01.
+
+ */
 "name" = "Liudmila Dolontaeva";
+"about me" = "Hello! I'm an iOS programmer specializing in mobile app development. I have one year of experience, completed numerous courses and training videos. I enjoy solving LeetCode problems as it helps me improve my skills and algorithmic thinking. Self-education is my passion, which keeps me up-to-date with the latest trends and technologies. Having a personal mentor supports and helps me grow professionally. The world of mobile development excites me, and I look forward to new opportunities and projects that bring satisfaction and inspiration. Programming, for me, is not just a job but a passion that makes life interesting and fulfilling.";
+
+"experience" = "iOS Developer, 1 year of experience :)";
+
+"profile" = "Profile";
+"about" = "About";
+"my skills" = "My Skills";
+"town" = "Moscow";
