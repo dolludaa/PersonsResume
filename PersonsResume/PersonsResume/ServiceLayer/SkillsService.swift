@@ -9,22 +9,18 @@ import Foundation
 
 class SkillsService {
 
-  static let shared = SkillsService()
+    func getSkills(_ completion: ([SkillModel]) -> Void){
+        let skills = [
+            SkillModel(skill: "Swift"),
+            SkillModel(skill: "SwiftUI"),
+            SkillModel(skill: "iOS Development"),
+            SkillModel(skill: "REST APIs"),
+            SkillModel(skill: "Git"),
+            SkillModel(skill: "Python"),
+            SkillModel(skill: "Unit Testing")
+        ]
 
-  private init() {}
-
-  func getSkills() -> [SkillModel] {
-    let skills = [
-      SkillModel(skill: "Swift"),
-      SkillModel(skill: "SwiftUI"),
-      SkillModel(skill: "iOS Development"),
-      SkillModel(skill: "REST APIs"),
-      SkillModel(skill: "Git"),
-      SkillModel(skill: "Python"),
-      SkillModel(skill: "Unit Testing")
-    ]
-
-    return skills
-  }
+        completion(skills)
+    }
 
 }

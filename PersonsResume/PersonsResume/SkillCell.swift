@@ -17,15 +17,20 @@ final class SkillCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: SkillCell.self)
 
     var imageLoader: SkillCellProtocol?
+    var onCloseTapped: (() -> Void)?
 
     private let skillTextLabel = UILabel()
     private let closeButton = UIButton()
+
+    private var textTrailing: NSLayoutConstraint?
+    private var textClosedButtonTrailing: NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
 
         setupLayout()
         setupStyle()
+        setUp()
     }
 
     required init?(coder: NSCoder) {
@@ -40,13 +45,18 @@ final class SkillCell: UICollectionViewCell {
         contentView.addSubview(skillTextLabel)
         contentView.addSubview(closeButton)
 
+        textTrailing = skillTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24)
+        textTrailing?.isActive = true
+
+        textClosedButtonTrailing = skillTextLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -10)
+
         NSLayoutConstraint.activate([
             skillTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             skillTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             skillTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
-            closeButton.widthAnchor.constraint(equalToConstant: 24),
-            closeButton.heightAnchor.constraint(equalToConstant: 24),
-            closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            closeButton.widthAnchor.constraint(equalToConstant: 16),
+            closeButton.heightAnchor.constraint(equalToConstant: 16),
+            closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             closeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24)
         ])
     }
@@ -67,19 +77,13 @@ final class SkillCell: UICollectionViewCell {
     func configure(model: SkillModel, isEditMode: Bool) {
         skillTextLabel.text = model.skill
         closeButton.isHidden = !isEditMode
+        closeButton.isEnabled = isEditMode
 
-
-        if isEditMode {
-            skillTextLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -10).isActive = true
-
-        } else {
-            skillTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12).isActive = true
-        }
+        textTrailing?.isActive = !isEditMode
+        textClosedButtonTrailing?.isActive = isEditMode
 
         skillTextLabel.invalidateIntrinsicContentSize()
         contentView.layoutIfNeeded()
-
-
     }
 
     private func setUp() {
@@ -87,6 +91,6 @@ final class SkillCell: UICollectionViewCell {
     }
 
     @objc private func didTapClose() {
-      // передать во вьюмодель запрос на удаление навыка
+        onCloseTapped?()
     }
 }
