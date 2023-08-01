@@ -11,8 +11,9 @@ import UIKit
 struct ResumeViewControllerAssembly {
     func create() -> UIViewController {
         let resumeView = ResumeView()
+        let skillService = SkillsService()
 
-        let controller = ResumeViewController(resumeView: resumeView)
+        let controller = ResumeViewController(resumeView: resumeView, service: skillService)
 
         resumeView.delegate = controller
 

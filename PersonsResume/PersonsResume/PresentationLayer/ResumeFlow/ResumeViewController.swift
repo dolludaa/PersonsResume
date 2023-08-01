@@ -12,13 +12,14 @@ class ResumeViewController: UIViewController {
     
     private var isEditMode = false
 
+    private let service: SkillsServiceProtocol
     private let resumeView: ResumeViewProtocol
+
     private var skillModels: [SkillModel] = []
 
-    private let service = SkillsService()
-
-    init(resumeView: ResumeViewProtocol) {
+    init(resumeView: ResumeViewProtocol, service: SkillsServiceProtocol) {
         self.resumeView = resumeView
+        self.service = service 
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -57,9 +58,7 @@ class ResumeViewController: UIViewController {
         let alert = UIAlertController(title: "Добавление навыка", message: "Введите название навыка, которым вы владеете", preferredStyle: .alert)
 
         alert.addTextField { textField in
-
             textField.placeholder = "Введите название"
-
         }
 
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
@@ -100,7 +99,7 @@ class ResumeViewController: UIViewController {
         ) as? SkillCell else { return UICollectionViewCell() }
         
         let skill = skillModels[indexPath.row]
-        cell.configure(model: skill, isEditMode: isEditMode)
+        cell.configure(model: skill, isEditMode: isEditMode, maxWidth: view.frame.width - 40)
         cell.onCloseTapped = { [weak self] in
             guard let self = self else { return }
             self.deleteItem(skillModel: skill)

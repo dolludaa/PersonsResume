@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SkillsService {
+class SkillsService: SkillsServiceProtocol {
 
     private let userDefaults = UserDefaults.standard
     private let skillsKey = "Skills"

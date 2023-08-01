@@ -14,6 +14,7 @@ final class ResumeView: UIView {
 
     private let scrollView = UIScrollView()
     private let scrollContainerView = UIView()
+    private let topFillerView = UIView()
     private let topViewContainer = UIView()
     private let titleLabel = UILabel()
     private let avatarImageView = UIImageView()
@@ -46,7 +47,9 @@ final class ResumeView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         mySkillsLabel.translatesAutoresizingMaskIntoConstraints = false
         editButton.translatesAutoresizingMaskIntoConstraints = false
+        topFillerView.translatesAutoresizingMaskIntoConstraints = false
 
+        addSubview(topFillerView)
         addSubview(scrollView)
         scrollView.addSubview(scrollContainerView)
         scrollContainerView.addSubview(topViewContainer)
@@ -67,6 +70,11 @@ final class ResumeView: UIView {
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            topFillerView.topAnchor.constraint(equalTo: topAnchor),
+            topFillerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topFillerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topFillerView.bottomAnchor.constraint(greaterThanOrEqualTo: scrollContainerView.topAnchor),
 
             scrollContainerView.leadingAnchor.constraint(equalTo: scrollContentGuide.leadingAnchor),
             scrollContainerView.trailingAnchor.constraint(equalTo: scrollContentGuide.trailingAnchor),
@@ -145,13 +153,13 @@ final class ResumeView: UIView {
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.cornerRadius = avatarSize / 2
 
-        fullNameLabel.text = "Долонтаева Людмила"
+        fullNameLabel.text = "name".localized
         fullNameLabel.numberOfLines = 0
         fullNameLabel.adjustsFontSizeToFitWidth = true
         fullNameLabel.font = .systemFont(ofSize: 24, weight: .bold)
         fullNameLabel.textAlignment = .center
 
-        descriptionLabel.text = "Начинающий iOS-разработчик, опыт 1 год :)"
+        descriptionLabel.text = "iOS-разработчик, опыт 1 год :)"
         descriptionLabel.textColor = AppColorEnum.descriptionTextColor.color
         descriptionLabel.numberOfLines = 0
         descriptionLabel.adjustsFontSizeToFitWidth = true
@@ -172,7 +180,7 @@ final class ResumeView: UIView {
         aboutMeLabel.textAlignment = .left
         aboutMeLabel.font = .systemFont(ofSize: 16, weight: .medium)
 
-        textMyDescription.text = "Привет! Я начинающий программист, специализирующийся на мобильной разработке приложений. У меня год опыта работы, пройдено множество курсов и обучающих видео. Я люблю решать задачи на литкоде, это помогает мне улучшить свои навыки и алгоритмическое мышление. Увлеченно самообразование позволяет быть в курсе последних тенденций и новых технологий. Собственный ментор поддерживает и помогает развиваться профессионально. Мир мобильной разработки захватывает меня, и я с нетерпением ожидаю новых возможностей и проектов, которые будут приносить удовлетворение и вдохновение. Программирование для меня - это не только работа, но и страсть, которая делает жизнь интересной и насыщенной."
+        textMyDescription.text = "about me".localized
         textMyDescription.textAlignment = .left
         textMyDescription.numberOfLines = 0
         textMyDescription.font = .systemFont(ofSize: 14, weight: .regular)
@@ -181,7 +189,7 @@ final class ResumeView: UIView {
         collectionView.register(SkillCell.self, forCellWithReuseIdentifier: SkillCell.reuseIdentifier)
         collectionView.register(AddCell.self, forCellWithReuseIdentifier: AddCell.reuseIdentifier)
 
-        alignedFlowLayout.estimatedItemSize = CGSize(width: max(0, frame.width - 48), height: 20)
+        alignedFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
         mySkillsLabel.text = "Мои навыки"
         mySkillsLabel.font = .systemFont(ofSize: 16, weight: .medium)
@@ -189,6 +197,7 @@ final class ResumeView: UIView {
         scrollView.isScrollEnabled = true
         editButton.setImage(UIImage(named: "editButton"), for: .normal)
 
+        topFillerView.backgroundColor = AppColorEnum.backgroundColor.color
     }
 
     private func setUp() {

@@ -25,6 +25,9 @@
 		44410D022A79866C00C27604 /* ResumeViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410D012A79866C00C27604 /* ResumeViewControllerAssembly.swift */; };
 		44410D042A798C3200C27604 /* ResumeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410D032A798C3200C27604 /* ResumeViewProtocol.swift */; };
 		44410D062A798C5400C27604 /* ResumeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410D052A798C5400C27604 /* ResumeViewControllerDelegate.swift */; };
+		44410D0A2A79930200C27604 /* SkillsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410D092A79930200C27604 /* SkillsServiceProtocol.swift */; };
+		44410D122A79972900C27604 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44410D142A79972900C27604 /* Localizable.strings */; };
+		44410D1B2A7997A700C27604 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410D1A2A7997A700C27604 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,12 @@
 		44410D012A79866C00C27604 /* ResumeViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewControllerAssembly.swift; sourceTree = "<group>"; };
 		44410D032A798C3200C27604 /* ResumeViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewProtocol.swift; sourceTree = "<group>"; };
 		44410D052A798C5400C27604 /* ResumeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeViewControllerDelegate.swift; sourceTree = "<group>"; };
+		44410D092A79930200C27604 /* SkillsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsServiceProtocol.swift; sourceTree = "<group>"; };
+		44410D132A79972900C27604 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44410D172A79973A00C27604 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44410D182A79974300C27604 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		44410D192A79974300C27604 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		44410D1A2A7997A700C27604 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				44410CD32A78E88000C27604 /* PersonsResume */,
-				44410D072A798E3200C27604 /* UIUtils */,
 				44410CD22A78E88000C27604 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +89,8 @@
 		44410CD32A78E88000C27604 /* PersonsResume */ = {
 			isa = PBXGroup;
 			children = (
+				44410D1C2A79A44D00C27604 /* Localization */,
+				44410D072A798E3200C27604 /* UIUtils */,
 				44410CFD2A797D3800C27604 /* PresentationLayer */,
 				44410CF42A790D0700C27604 /* ServiceLayer */,
 				44410CED2A78F86400C27604 /* Extensions */,
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				44410CEE2A78F87F00C27604 /* UIColor.swift */,
+				44410D1A2A7997A700C27604 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 		44410CF42A790D0700C27604 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				44410D082A7992F700C27604 /* Contracts */,
 				44410CF52A790D2200C27604 /* SkillsService.swift */,
 			);
 			path = ServiceLayer;
@@ -167,6 +179,22 @@
 			path = UIUtils;
 			sourceTree = "<group>";
 		};
+		44410D082A7992F700C27604 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				44410D092A79930200C27604 /* SkillsServiceProtocol.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		44410D1C2A79A44D00C27604 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				44410D142A79972900C27604 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,11 +232,12 @@
 			};
 			buildConfigurationList = 44410CCC2A78E88000C27604 /* Build configuration list for PBXProject "PersonsResume" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 44410CC82A78E88000C27604;
 			productRefGroup = 44410CD22A78E88000C27604 /* Products */;
@@ -226,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44410CE12A78E88300C27604 /* LaunchScreen.storyboard in Resources */,
+				44410D122A79972900C27604 /* Localizable.strings in Resources */,
 				44410CDE2A78E88300C27604 /* Assets.xcassets in Resources */,
 				44410CDC2A78E88000C27604 /* Main.storyboard in Resources */,
 			);
@@ -249,8 +279,10 @@
 				44410CE92A78F16000C27604 /* ResumeView.swift in Sources */,
 				44410D042A798C3200C27604 /* ResumeViewProtocol.swift in Sources */,
 				44410D062A798C5400C27604 /* ResumeViewControllerDelegate.swift in Sources */,
+				44410D0A2A79930200C27604 /* SkillsServiceProtocol.swift in Sources */,
 				44410CF82A794DC300C27604 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				44410CFC2A7970F000C27604 /* AddCell.swift in Sources */,
+				44410D1B2A7997A700C27604 /* String.swift in Sources */,
 				44410CFA2A79502200C27604 /* DynamicHeightCollectionView.swift in Sources */,
 				44410CF62A790D2200C27604 /* SkillsService.swift in Sources */,
 			);
@@ -263,6 +295,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				44410CDB2A78E88000C27604 /* Base */,
+				44410D182A79974300C27604 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -271,8 +304,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				44410CE02A78E88300C27604 /* Base */,
+				44410D192A79974300C27604 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		44410D142A79972900C27604 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44410D132A79972900C27604 /* en */,
+				44410D172A79973A00C27604 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -282,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -342,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

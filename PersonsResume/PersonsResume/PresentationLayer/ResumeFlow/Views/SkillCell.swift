@@ -19,6 +19,7 @@ final class SkillCell: UICollectionViewCell {
 
     private var textTrailing: NSLayoutConstraint?
     private var textClosedButtonTrailing: NSLayoutConstraint?
+    private var cellWidth: NSLayoutConstraint?
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -45,10 +46,14 @@ final class SkillCell: UICollectionViewCell {
 
         textClosedButtonTrailing = skillTextLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -10)
 
+        cellWidth = contentView.widthAnchor.constraint(lessThanOrEqualToConstant: 200)
+        cellWidth?.isActive = true
+
         NSLayoutConstraint.activate([
             skillTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             skillTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             skillTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+
             closeButton.widthAnchor.constraint(equalToConstant: 16),
             closeButton.heightAnchor.constraint(equalToConstant: 16),
             closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
@@ -64,24 +69,25 @@ final class SkillCell: UICollectionViewCell {
         skillTextLabel.textColor = .black
         skillTextLabel.font = .systemFont(ofSize: 16)
         skillTextLabel.adjustsFontSizeToFitWidth = true
-        skillTextLabel.minimumScaleFactor = 0.5
+        skillTextLabel.minimumScaleFactor = 0.8
         skillTextLabel.lineBreakMode = .byTruncatingTail
 
         closeButton.tintColor = .black
         closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
     }
 
-    func configure(model: SkillModel, isEditMode: Bool) {
+    func configure(model: SkillModel, isEditMode: Bool, maxWidth: CGFloat) {
         contentView.layoutIfNeeded()
 
         skillTextLabel.text = model.skill
         skillTextLabel.invalidateIntrinsicContentSize()
 
         closeButton.isHidden = !isEditMode
-        closeButton.isEnabled = isEditMode
 
         textTrailing?.isActive = !isEditMode
         textClosedButtonTrailing?.isActive = isEditMode
+
+        cellWidth?.constant = maxWidth
     }
 
     private func setUp() {
