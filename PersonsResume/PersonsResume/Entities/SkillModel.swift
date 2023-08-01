@@ -8,5 +8,5 @@
 import Foundation
 
 struct SkillModel: Codable {
-    var skill: String = ""
+    let skill: String
 }

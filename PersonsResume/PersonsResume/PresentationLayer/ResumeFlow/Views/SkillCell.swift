@@ -8,15 +8,10 @@
 import Foundation
 import UIKit
 
-protocol SkillCellProtocol {
-
-}
-
 final class SkillCell: UICollectionViewCell {
 
     static let reuseIdentifier = String(describing: SkillCell.self)
 
-    var imageLoader: SkillCellProtocol?
     var onCloseTapped: (() -> Void)?
 
     private let skillTextLabel = UILabel()
@@ -65,25 +60,28 @@ final class SkillCell: UICollectionViewCell {
 
         contentView.backgroundColor = AppColorEnum.backgroundColor.color
         contentView.layer.cornerRadius = 12
+
         skillTextLabel.textColor = .black
         skillTextLabel.font = .systemFont(ofSize: 16)
         skillTextLabel.adjustsFontSizeToFitWidth = true
         skillTextLabel.minimumScaleFactor = 0.5
         skillTextLabel.lineBreakMode = .byTruncatingTail
+
         closeButton.tintColor = .black
         closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
     }
 
     func configure(model: SkillModel, isEditMode: Bool) {
+        contentView.layoutIfNeeded()
+
         skillTextLabel.text = model.skill
+        skillTextLabel.invalidateIntrinsicContentSize()
+
         closeButton.isHidden = !isEditMode
         closeButton.isEnabled = isEditMode
 
         textTrailing?.isActive = !isEditMode
         textClosedButtonTrailing?.isActive = isEditMode
-
-        skillTextLabel.invalidateIntrinsicContentSize()
-        contentView.layoutIfNeeded()
     }
 
     private func setUp() {
