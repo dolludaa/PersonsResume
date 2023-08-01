@@ -16,6 +16,11 @@
 		44410CE92A78F16000C27604 /* ResumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CE82A78F16000C27604 /* ResumeView.swift */; };
 		44410CEC2A78F7AB00C27604 /* AppColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CEB2A78F7AB00C27604 /* AppColorEnum.swift */; };
 		44410CEF2A78F87F00C27604 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CEE2A78F87F00C27604 /* UIColor.swift */; };
+		44410CF12A790B5700C27604 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CF02A790B5700C27604 /* SkillCell.swift */; };
+		44410CF32A790C6100C27604 /* SkillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CF22A790C6100C27604 /* SkillModel.swift */; };
+		44410CF62A790D2200C27604 /* SkillsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CF52A790D2200C27604 /* SkillsService.swift */; };
+		44410CF82A794DC300C27604 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CF72A794DC300C27604 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		44410CFA2A79502200C27604 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44410CF92A79502100C27604 /* DynamicHeightCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		44410CE82A78F16000C27604 /* ResumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeView.swift; sourceTree = "<group>"; };
 		44410CEB2A78F7AB00C27604 /* AppColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorEnum.swift; sourceTree = "<group>"; };
 		44410CEE2A78F87F00C27604 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		44410CF02A790B5700C27604 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
+		44410CF22A790C6100C27604 /* SkillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillModel.swift; sourceTree = "<group>"; };
+		44410CF52A790D2200C27604 /* SkillsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsService.swift; sourceTree = "<group>"; };
+		44410CF72A794DC300C27604 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		44410CF92A79502100C27604 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,7 @@
 		44410CD32A78E88000C27604 /* PersonsResume */ = {
 			isa = PBXGroup;
 			children = (
+				44410CF42A790D0700C27604 /* ServiceLayer */,
 				44410CED2A78F86400C27604 /* Extensions */,
 				44410CEA2A78F76D00C27604 /* Entities */,
 				44410CD42A78E88000C27604 /* AppDelegate.swift */,
@@ -72,6 +83,10 @@
 				44410CDF2A78E88300C27604 /* LaunchScreen.storyboard */,
 				44410CE22A78E88300C27604 /* Info.plist */,
 				44410CE82A78F16000C27604 /* ResumeView.swift */,
+				44410CF02A790B5700C27604 /* SkillCell.swift */,
+				44410CF22A790C6100C27604 /* SkillModel.swift */,
+				44410CF72A794DC300C27604 /* LeftAlignedCollectionViewFlowLayout.swift */,
+				44410CF92A79502100C27604 /* DynamicHeightCollectionView.swift */,
 			);
 			path = PersonsResume;
 			sourceTree = "<group>";
@@ -90,6 +105,14 @@
 				44410CEE2A78F87F00C27604 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		44410CF42A790D0700C27604 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				44410CF52A790D2200C27604 /* SkillsService.swift */,
+			);
+			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,10 +188,15 @@
 			files = (
 				44410CD92A78E88000C27604 /* ResumeViewController.swift in Sources */,
 				44410CEF2A78F87F00C27604 /* UIColor.swift in Sources */,
+				44410CF12A790B5700C27604 /* SkillCell.swift in Sources */,
+				44410CF32A790C6100C27604 /* SkillModel.swift in Sources */,
 				44410CD52A78E88000C27604 /* AppDelegate.swift in Sources */,
 				44410CD72A78E88000C27604 /* SceneDelegate.swift in Sources */,
 				44410CEC2A78F7AB00C27604 /* AppColorEnum.swift in Sources */,
 				44410CE92A78F16000C27604 /* ResumeView.swift in Sources */,
+				44410CF82A794DC300C27604 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				44410CFA2A79502200C27604 /* DynamicHeightCollectionView.swift in Sources */,
+				44410CF62A790D2200C27604 /* SkillsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
